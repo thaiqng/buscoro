@@ -1,0 +1,81 @@
+container:
+  type: ColumnPanel
+  properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
+    wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '', spacing_below: small,
+    background: '#F4F4F4'}
+components:
+- type: Link
+  properties: {role: null, url: '', align: left, tooltip: '', border: '', foreground: '#000000',
+    visible: true, text: '', font_size: null, wrap_on: mobile, font: Shadows Into Light,
+    col_spacing: medium, spacing_above: none, icon_align: left_edge, col_widths: '{}',
+    spacing_below: none, italic: false, background: '', bold: true, underline: false,
+    icon: 'fa:chevron-left'}
+  name: link_back
+  layout_properties:
+    col_widths: {}
+    grid_position: PYKQQE,EXVBDM
+  components: []
+  event_bindings: {click: link_back_click}
+- type: Link
+  properties: {role: null, url: '', align: center, tooltip: '', border: '', foreground: '',
+    visible: true, text: '', font_size: null, wrap_on: mobile, font: '', col_spacing: medium,
+    spacing_above: small, icon_align: left, col_widths: '', spacing_below: small,
+    italic: false, background: '', bold: false, underline: true, icon: ''}
+  name: link_get_content
+  layout_properties:
+    col_widths: {}
+    grid_position: MRKOGU,YQYYCU
+  event_bindings: {click: link_get_content_click}
+- type: Label
+  properties: {role: title, align: left, tooltip: '', border: '', foreground: '',
+    visible: true, text: Mis equipos pendientes, font_size: null, font: '', spacing_above: small,
+    icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+    underline: false, icon: ''}
+  name: label_pending_team
+  layout_properties:
+    col_widths: {}
+    grid_position: MQHYIB,ONXEXK
+- type: Label
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: No tiene ningún equipo pendiente., font_size: null, font: '', spacing_above: small,
+    icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+    underline: false, icon: ''}
+  name: label_no_team
+  layout_properties:
+    col_widths: {}
+    grid_position: BRDATG,QNZIGA
+- type: RepeatingPanel
+  properties: {role: null, tooltip: '', border: '', foreground: '', items: null, visible: true,
+    spacing_above: small, spacing_below: small, item_template: My_orders.My_team_card,
+    background: ''}
+  name: repeating_panel_pending_team
+  layout_properties:
+    col_widths: {}
+    grid_position: PBWMAW,KQUNCX
+- type: Label
+  properties: {role: title, align: left, tooltip: '', border: '', foreground: '',
+    visible: true, text: Mis pedidos pendientes, font_size: null, font: '', spacing_above: small,
+    icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+    underline: false, icon: ''}
+  name: label_order
+  layout_properties:
+    col_widths: {}
+    grid_position: VXSLNG,EWLTAZ
+- type: Label
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: No tiene ningún pedido pendiente., font_size: null, font: '', spacing_above: small,
+    icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+    underline: false, icon: ''}
+  name: label_no_order
+  layout_properties:
+    col_widths: {}
+    grid_position: YAPMPJ,MGFXPF
+- type: RepeatingPanel
+  properties: {role: null, tooltip: '', border: '', foreground: '', items: null, visible: true,
+    spacing_above: small, spacing_below: small, item_template: My_orders.My_order_card,
+    background: ''}
+  name: repeating_panel_order
+  layout_properties:
+    col_widths: {}
+    grid_position: XDHUEU,BTCDUE
+is_package: true

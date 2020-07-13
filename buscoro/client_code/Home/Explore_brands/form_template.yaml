@@ -1,0 +1,34 @@
+is_package: true
+container:
+  type: HtmlTemplate
+  properties: {tooltip: '', background: '#F4F4F4', foreground: '', border: '', visible: true,
+    role: null, html: ''}
+  data_bindings: []
+components:
+- type: ColumnPanel
+  properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
+    wrap_on: never, col_spacing: tiny, spacing_above: small, col_widths: '{}', spacing_below: small,
+    background: ''}
+  name: column_panel_all
+  layout_properties: {slot: default}
+  components:
+  - type: Label
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+      visible: true, text: '', font_size: null, font: Shadows Into Light, spacing_above: small,
+      icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+      underline: false, icon: ''}
+    name: label_current_category
+    layout_properties: {slot: default, grid_position: 'HBAJPK,LDCPUU'}
+    data_bindings: []
+  - type: RepeatingPanel
+    properties: {role: null, tooltip: '', border: '', foreground: '', items: null,
+      visible: true, spacing_above: small, spacing_below: small, item_template: Home.Explore_brands.Brand_card,
+      background: ''}
+    name: repeating_panel_brand_a
+    layout_properties: {slot: default, grid_position: 'OJPIJV,GOXYCG'}
+  - type: RepeatingPanel
+    properties: {role: null, tooltip: '', border: '', foreground: '', items: null,
+      visible: true, spacing_above: small, spacing_below: small, item_template: Home.Explore_brands.Brand_card,
+      background: ''}
+    name: repeating_panel_brand_b
+    layout_properties: {slot: default, grid_position: 'OJPIJV,PDTJGK'}

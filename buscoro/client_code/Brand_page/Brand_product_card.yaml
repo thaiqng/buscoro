@@ -1,0 +1,53 @@
+components:
+- type: ColumnPanel
+  properties: {role: card, tooltip: '', border: '', foreground: '', visible: true,
+    wrap_on: never, col_spacing: medium, spacing_above: none, col_widths: '{}', spacing_below: none,
+    background: '#ffffff'}
+  name: card_product
+  layout_properties:
+    col_widths: {}
+    grid_position: UPHGFH,CKTHIC
+    full_width_row: true
+  components:
+  - type: Image
+    properties: {role: null, vertical_align: center, height: '120', tooltip: '', border: '',
+      foreground: '', visible: true, display_mode: shrink_to_fit, spacing_above: none,
+      source: '', spacing_below: none, background: '', horizontal_align: center}
+    name: image_deal
+    layout_properties: {grid_position: 'WMUQYY,EQPFND'}
+    data_bindings:
+    - {property: source, code: 'self.item[''thumbnail''][''picture'']'}
+  - type: Label
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '#000000',
+      visible: true, text: '', font_size: null, font: '', spacing_above: none, icon_align: left,
+      spacing_below: none, italic: false, background: '', bold: true, underline: false,
+      icon: ''}
+    name: label_product
+    layout_properties: {grid_position: 'TVUAKT,CXXZHL'}
+    data_bindings:
+    - {property: text, code: 'self.item[''name'']'}
+  - type: Label
+    properties: {role: null, align: left, tooltip: '', border: '', foreground: '#FF164E',
+      visible: true, text: '', font_size: null, font: '', spacing_above: none, icon_align: left,
+      spacing_below: none, italic: false, background: '', bold: false, underline: false,
+      icon: ''}
+    name: label_price
+    layout_properties: {grid_position: 'JYBLJR,ABEHGF'}
+    data_bindings:
+    - {property: text, code: '"$"+str(self.item[''price_team''])'}
+  data_bindings: []
+- type: Link
+  properties: {role: null, url: '', align: center, tooltip: '', border: '', foreground: '#ffffff',
+    visible: true, text: '', font_size: 26, wrap_on: never, font: '', col_spacing: medium,
+    spacing_above: none, icon_align: right, col_widths: '{}', spacing_below: none,
+    italic: false, background: '#FF164E', bold: false, underline: false, icon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAABx0lEQVRoge2ZzZGDMAxGU0I6WEqghJSwHWxKoIPQwdJB0kFKoISUQAmU8PaAmQWGH8vIyAe+GV9yEHpg65OVy+XUqTgCHvipBQrrfBflCdGrsc53UUAphLla5xws4D0A+bbOJ1hAMQCprPMJFnAbgNRAltKSgFyF5+hovSUwH+ts1yQBqayTXVEtAblbZ7sif6OmO1ipKvcGcTCtdcYzkncbjI0xFT1DQIrNsMdL3mkwNsZUJO/9SM8Y/cvuDExKxhh+PyItY5SV3QlIKsa475JHOsYoL7szMCkY4/4LHmkY4/4rN/bGGF52JyDWxqgzlsLeGMPL7gyMlTHqztaApxHI/rKbAARozdXwnxXHUIPWpJOxGVZ0LctRSw1i2J7o1HILTUBatTdkIbqR6XDP1geuhyaItat/acM0BhBx/miiOzM5na98+N9qN/ZN2O8uTuNW6X6PcyZd8GbmzbUEGhfws/Q1YoKs3UvEVY3t2+dvDAifK6+o3Wb7/0z9ko9f9SqFMV8eMfWqlntojC/iM2rSPyeMzXFOmTDe1lfWa+EnD85ZnqiUgTGXzkkjfTHSB2d0e7t1qwZuO2P2PtIDVFG21KlT2/oDhuhqM51VlsMAAAAASUVORK5CYII='}
+  name: link_detail
+  layout_properties: {grid_position: 'VPUIEZ,GJEUNS'}
+  data_bindings: []
+  event_bindings: {click: link_detail_click}
+  components: []
+container:
+  type: ColumnPanel
+  properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
+    wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+    spacing_below: small, background: '#ffffff'}

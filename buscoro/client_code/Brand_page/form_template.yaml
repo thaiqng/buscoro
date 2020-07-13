@@ -1,0 +1,101 @@
+container:
+  type: ColumnPanel
+  properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
+    wrap_on: mobile, col_spacing: medium, spacing_above: none, col_widths: '{}', spacing_below: none,
+    background: '#F4F4F4'}
+components:
+- type: ColumnPanel
+  properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
+    wrap_on: never, col_spacing: medium, spacing_above: none, col_widths: '{}', spacing_below: none,
+    background: '#F4F4F4'}
+  name: column_panel_content
+  layout_properties: {grid_position: 'NXFRWW,ZGLVRC'}
+  components:
+  - type: Link
+    properties: {role: null, url: '', align: left, tooltip: '', border: '', foreground: '#000000',
+      visible: true, text: '', font_size: null, wrap_on: mobile, font: Shadows Into Light,
+      col_spacing: medium, spacing_above: none, icon_align: left_edge, col_widths: '',
+      spacing_below: none, italic: false, background: '', bold: true, underline: false,
+      icon: 'fa:chevron-left'}
+    name: link_back
+    layout_properties: {grid_position: 'NUZOMX,EJAMIK'}
+    data_bindings:
+    - {property: text, code: '"Marcas > Tienda oficial de " + self.item[''name'']'}
+    event_bindings: {click: link_back_click}
+  - type: Image
+    properties: {role: null, vertical_align: center, height: 200, tooltip: '', border: '',
+      foreground: '', visible: true, display_mode: fill_width, spacing_above: none,
+      source: '', spacing_below: none, background: '', horizontal_align: center}
+    name: image_brand_banner
+    layout_properties: {grid_position: 'WBOUPP,CRMMAU'}
+    data_bindings:
+    - {property: source, code: 'self.item[''banner'']'}
+  - type: ColumnPanel
+    properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
+      wrap_on: never, col_spacing: medium, spacing_above: none, col_widths: '{}',
+      spacing_below: none, background: '#FF164E'}
+    name: column_panel_highlight
+    layout_properties: {grid_position: 'HVWAGJ,ZPWJBB'}
+    components:
+    - type: Label
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '#ffffff',
+        visible: true, text: '', font_size: 30, font: '', spacing_above: small, icon_align: left,
+        spacing_below: small, italic: false, background: '', bold: true, underline: false,
+        icon: ''}
+      name: label_brand_name
+      layout_properties: {grid_position: 'BUJEAC,LWYNVM'}
+      data_bindings:
+      - {property: text, code: '"  "+self.item[''name'']'}
+    - type: Image
+      properties: {role: null, vertical_align: center, height: 57, tooltip: '', border: '',
+        foreground: '', visible: true, display_mode: shrink_to_fit, spacing_above: small,
+        source: '', spacing_below: small, background: '', horizontal_align: right}
+      name: image_brand_logo
+      layout_properties: {grid_position: 'BUJEAC,QUNVVX'}
+      data_bindings:
+      - {property: source, code: 'self.item[''logo'']'}
+  - type: ColumnPanel
+    properties: {role: card, tooltip: '', border: '', foreground: '', visible: true,
+      wrap_on: never, col_spacing: medium, spacing_above: none, col_widths: '{}',
+      spacing_below: small, background: ''}
+    name: card_brand_summary
+    layout_properties: {grid_position: 'SSGHHC,RDGLYA'}
+    components:
+    - type: Label
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: '', font_size: null, font: '', spacing_above: none, icon_align: left,
+        spacing_below: none, italic: false, background: '', bold: false, underline: false,
+        icon: ''}
+      name: label_brand_description
+      layout_properties: {grid_position: 'EHXUHW,BAUIVZ'}
+      data_bindings:
+      - {property: text, code: 'self.item[''description'']'}
+  - type: ColumnPanel
+    properties: {role: card, tooltip: '', border: '', foreground: '', visible: true,
+      wrap_on: never, col_spacing: tiny, spacing_above: small, col_widths: '{"JKNKSG":30,"DPJBHH":30}',
+      spacing_below: small, background: ''}
+    name: card_brand_product
+    layout_properties: {grid_position: 'IJNHRI,OYLURF'}
+    components:
+    - type: Label
+      properties: {role: title, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: '', font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: none, italic: false, background: '', bold: false,
+        underline: false, icon: ''}
+      name: label_product
+      layout_properties: {grid_position: 'XDXILL,CJBGGJ'}
+      data_bindings:
+      - {property: text, code: '"Ofertas de "+self.item[''name'']'}
+    - type: RepeatingPanel
+      properties: {role: null, tooltip: '', border: '', foreground: '', items: null,
+        visible: true, spacing_above: none, spacing_below: none, item_template: Brand_page.Brand_product_card,
+        background: ''}
+      name: repeating_panel_brand_product_a
+      layout_properties: {grid_position: 'AOAQEL,JKNKSG'}
+    - type: RepeatingPanel
+      properties: {role: null, tooltip: '', border: '', foreground: '', items: null,
+        visible: true, spacing_above: small, spacing_below: small, item_template: Brand_page.Brand_product_card,
+        background: ''}
+      name: repeating_panel_brand_product_b
+      layout_properties: {grid_position: 'AOAQEL,DPJBHH'}
+is_package: true

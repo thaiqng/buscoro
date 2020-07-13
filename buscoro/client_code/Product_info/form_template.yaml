@@ -1,0 +1,220 @@
+container:
+  type: HtmlTemplate
+  properties: {tooltip: '', background: '#F4F4F4', foreground: '', border: '', visible: true,
+    role: null, html: ''}
+components:
+- type: ColumnPanel
+  properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
+    wrap_on: never, col_spacing: medium, spacing_above: none, col_widths: '{}', spacing_below: none,
+    background: '#F4F4F4'}
+  name: column_panel_content
+  layout_properties: {slot: default}
+  components:
+  - type: Link
+    properties: {role: null, url: '', align: left, tooltip: '', border: '', foreground: '#000000',
+      visible: true, text: '', font_size: null, wrap_on: mobile, font: Shadows Into Light,
+      col_spacing: medium, spacing_above: none, icon_align: left_edge, col_widths: '',
+      spacing_below: none, italic: false, background: '', bold: true, underline: false,
+      icon: 'fa:chevron-left'}
+    name: link_back
+    layout_properties:
+      col_widths: {}
+      grid_position: ZJCUMP,JEXZDN
+      slot: back
+    event_bindings: {click: link_back_click}
+    data_bindings:
+    - {property: text, code: 'self.item[''brand''][''name'']+" > "+self.item[''name'']'}
+  - type: RepeatingPanel
+    properties: {role: null, tooltip: '', border: '', foreground: '', items: null,
+      visible: true, spacing_above: none, spacing_below: none, item_template: Product_info.Product_picture_card,
+      background: ''}
+    name: repeating_panel_picture
+    layout_properties:
+      col_widths: {}
+      grid_position: XOEDMP,SOUKGG
+      slot: 2.picture
+  - type: ColumnPanel
+    properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
+      wrap_on: never, col_spacing: medium, spacing_above: none, col_widths: '{"WNDLDK":30,"QKECNG":30}',
+      spacing_below: none, background: ''}
+    name: card_navigation_picture
+    layout_properties: {slot: 5.navigation, grid_position: 'MJWQNZ,IVLYNP'}
+    components:
+    - type: Link
+      properties: {role: null, url: '', align: left, tooltip: '', border: '', foreground: '#000000',
+        visible: true, text: '   ', font_size: null, wrap_on: never, font: '', col_spacing: medium,
+        spacing_above: none, icon_align: right_edge, col_widths: '{}', spacing_below: none,
+        italic: false, background: '', bold: false, underline: false, icon: 'fa:caret-left'}
+      name: link_previous_picture
+      layout_properties:
+        col_widths: {}
+        grid_position: DPBOHS,WNDLDK
+        slot: default
+      components: []
+      event_bindings: {click: link_previous_picture_click}
+    - type: Link
+      properties: {role: null, url: '', align: left, tooltip: '', border: '', foreground: '#000000',
+        visible: true, text: '   ', font_size: null, wrap_on: never, font: '', col_spacing: medium,
+        spacing_above: none, icon_align: left_edge, col_widths: '', spacing_below: none,
+        italic: false, background: '', bold: false, underline: false, icon: 'fa:caret-right'}
+      name: link_next_picture
+      layout_properties:
+        col_widths: {}
+        grid_position: DPBOHS,QKECNG
+        slot: default
+      event_bindings: {click: link_next_picture_click}
+  - type: ColumnPanel
+    properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
+      wrap_on: never, col_spacing: medium, spacing_above: none, col_widths: '{"EZTHCE":45,"ZHYISN":15}',
+      spacing_below: none, background: '#FF164E'}
+    name: column_panel_highlight
+    layout_properties: {grid_position: 'VQEOHY,FZPXUX', full_width_row: false, slot: default}
+    components:
+    - type: FlowPanel
+      properties: {role: null, spacing: none, align: left, tooltip: '', border: '',
+        foreground: '', visible: true, spacing_above: small, spacing_below: small,
+        background: ''}
+      name: flow_panel_price
+      layout_properties: {grid_position: 'PUTYXD,EZTHCE'}
+      components:
+      - type: Label
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '#ffffff',
+          visible: true, text: '    $', font_size: null, font: '', spacing_above: medium,
+          icon_align: left, spacing_below: none, italic: false, background: '', bold: false,
+          underline: false, icon: ''}
+        name: label_dollar
+        layout_properties: {}
+      - type: Label
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '#ffffff',
+          visible: true, text: '', font_size: 30, font: '', spacing_above: small,
+          icon_align: left, spacing_below: small, italic: false, background: '', bold: true,
+          underline: false, icon: ''}
+        name: label_price_team
+        layout_properties: {grid_position: 'TCVEMV,XAKFXJ'}
+        data_bindings:
+        - {property: text, code: 'self.item[''price_team'']'}
+      - type: Label
+        properties: {role: null, align: left, tooltip: '', border: '', foreground: '#D6D6D6',
+          visible: true, text: '', font_size: null, font: '', spacing_above: medium,
+          icon_align: left, spacing_below: none, italic: false, background: '', bold: false,
+          underline: false, icon: ''}
+        name: label_price_single
+        layout_properties: {grid_position: 'TCVEMV,JPOLBM'}
+        data_bindings:
+        - {property: text, code: '"   -"+str(round(100*(1-self.item[''price_team'']/self.item[''price_single''])))+"%"'}
+    - type: Image
+      properties: {role: null, vertical_align: center, height: 65, tooltip: '', border: '',
+        foreground: '', visible: true, display_mode: shrink_to_fit, spacing_above: small,
+        source: '', spacing_below: small, background: '', horizontal_align: right}
+      name: image_brand
+      layout_properties: {grid_position: 'PUTYXD,ZHYISN'}
+      data_bindings:
+      - {property: source, code: 'self.item[''brand''][''logo'']'}
+  - type: ColumnPanel
+    properties: {role: card, tooltip: '', border: '', foreground: '', visible: true,
+      wrap_on: never, col_spacing: medium, spacing_above: none, col_widths: '{}',
+      spacing_below: small, background: white}
+    name: column_panel_overview
+    layout_properties: {grid_position: 'SUUTVI,ZXWUBO'}
+    components:
+    - type: Label
+      properties: {role: title, align: left, tooltip: '', border: '', foreground: '#000000',
+        visible: true, text: '', font_size: null, font: '30', spacing_above: none,
+        icon_align: left, spacing_below: none, italic: false, background: '', bold: false,
+        underline: false, icon: ''}
+      name: label_product
+      layout_properties:
+        col_widths: {}
+        grid_position: UIAGGW,QHYQKX
+      data_bindings:
+      - {property: text, code: 'self.item[''name'']'}
+    - type: Link
+      properties: {role: null, url: '', align: left, tooltip: '', border: '', foreground: '#FF8F8F',
+        visible: true, text: '', font_size: null, wrap_on: mobile, font: '', col_spacing: medium,
+        spacing_above: none, icon_align: left, col_widths: '', spacing_below: none,
+        italic: true, background: '', bold: false, underline: false, icon: ''}
+      name: link_brand
+      layout_properties:
+        col_widths: {}
+        grid_position: VIQBSZ,TSMLCW
+      data_bindings:
+      - {property: text, code: '"#"+self.item[''brand''][''name'']'}
+      event_bindings: {click: link_brand_click}
+  - type: ColumnPanel
+    properties: {role: card, tooltip: '', border: '', foreground: '', visible: true,
+      wrap_on: never, col_spacing: medium, spacing_above: small, col_widths: '{}',
+      spacing_below: small, background: white}
+    name: column_panel_detail
+    layout_properties: {grid_position: 'QNVEBO,AVJSKF'}
+    components:
+    - type: Label
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '#000000',
+        visible: true, text: ¡Compra con un amigo y ahorra juntos!, font_size: null,
+        font: '', spacing_above: none, icon_align: left, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false, icon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAACYUlEQVRogd2Y65WjMAyFbwl0sC4hJbiEdLAqIR2EDjIdkA5SAiWkBEpICcwPW7OK1/gBggncc3QyKEjWZyzjCbBvXQGM/nMTWQC9H3QE8ATQATgDMDNzMgTb6vobDBizWrAQolWu+T+VQNSC7QYiBdbuGSIs+usIEKzwWl1bQFzhnsruIUYAwxEg2JpPhOjgXprGf1IGYozc8+sQuYJiECMU+0TrSaREiViVPtHqiZPIefXFXYXvnIlf1Ceajf1H5I3NtMnE0ydAhE+k9b5W+Gwmflaf5CBePjF5uxeAyKJj6jLx1X2SgxgQP34b/10q1s4cs7pPShLGIFi2IL6DW2bG338rhCjukxKIXtzf+KI6vM/Us6KwWsv2Semj7UTMRfgvwn9fESTZJ6UQIYgVfiP8/YogowbECLdbyWVkItevrUFqIdhuU7OCusadY70WhFxiRuQ7AXisDDEGY6q+sQdMvzsGuB3sAbfbtIl7S4wkhFEEkEVe/EA2nLVAuYNhEQRQt6PwMaS0yBKRBgQ0EhSqwft/gC1cX9XuaJM11CQ6Vxb5gFtuWtvvJARQt7SGiiIHLGvk6tVgFQcbPaAR+Q2WH1GyECxSgkgd4L4ScSoQWjAvvD+JJnKt1thrwvQijxF+K/z3LSCWwnQTOVrhL11eiyGWwDxFfAM3+x3eT8L9lhBLYGwinymIJ2WGH1HB4NIGzP8RglZi+BFlCpjqFz6P3ZDfrVaHYFEFRK1tBsGihQV/BASLMoXtAoJFOAAEi3AACBbhABAswgEgWIQDQLAIB4BgnfDvUPjyf5+SEYr6BgQiwsNfVE30AAAAAElFTkSuQmCC'}
+      name: label_instruction
+      layout_properties:
+        col_widths: {}
+        grid_position: LZMKUC,DQWBWR
+    - type: Label
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: '', font_size: null, font: '', spacing_above: none, icon_align: left,
+        spacing_below: none, italic: false, background: '', bold: false, underline: false,
+        icon: ''}
+      name: label_description
+      layout_properties:
+        col_widths: {}
+        grid_position: XMYYLM,ZPUVWL
+      data_bindings:
+      - {property: text, code: 'self.item[''description'']'}
+  - type: ColumnPanel
+    properties: {role: card, tooltip: '', border: '', foreground: '', visible: true,
+      wrap_on: never, col_spacing: medium, spacing_above: small, col_widths: '{}',
+      spacing_below: small, background: white}
+    name: column_panel_2
+    layout_properties: {grid_position: 'VOMNUX,HQHMHO'}
+    components:
+    - type: Label
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: '', font_size: null, font: '', spacing_above: none, icon_align: left,
+        spacing_below: small, italic: false, background: '', bold: false, underline: false,
+        icon: ''}
+      name: label_existing_team
+      layout_properties: {grid_position: 'HMPYDM,MOEZIO'}
+      data_bindings: []
+    - type: RepeatingPanel
+      properties: {role: public-teams, tooltip: '', border: '', foreground: '', items: null,
+        visible: true, spacing_above: none, spacing_below: none, item_template: Product_info.Existing_team_card,
+        background: ''}
+      name: repeating_panel_existing_team
+      layout_properties: {grid_position: 'DFVGIS,GYIGAS'}
+      data_bindings: []
+- type: Link
+  properties: {role: buy-single, url: '', align: center, tooltip: '', border: '',
+    foreground: '#ffffff', visible: true, text: '', font_size: null, wrap_on: mobile,
+    font: '', col_spacing: medium, spacing_above: small, icon_align: left, col_widths: '',
+    spacing_below: none, italic: false, background: '#FF8F8F', bold: false, underline: false,
+    icon: ''}
+  name: link_buy_single
+  layout_properties:
+    col_widths: {}
+    grid_position: PLYJWF,ZCHBIP
+    slot: default
+  data_bindings:
+  - {property: text, code: '"$"+str(self.item[''price_single''])+''\nCOMPRAR SOLO'''}
+  event_bindings: {click: link_buy_single_click}
+- type: Link
+  properties: {role: buy-team, url: '', align: center, tooltip: '', border: '', foreground: '#ffffff',
+    visible: true, text: '', font_size: null, wrap_on: mobile, font: '', col_spacing: medium,
+    spacing_above: small, icon_align: left, col_widths: '', spacing_below: none, italic: false,
+    background: '#FF164E', bold: false, underline: false, icon: ''}
+  name: link_buy_team
+  layout_properties:
+    col_widths: {}
+    grid_position: NLYYEQ,UVKUQL
+    slot: default
+  data_bindings:
+  - {property: text, code: '"$"+str(self.item[''price_team''])+''\nCOMPRAR CON UN
+      AMIGO'''}
+  event_bindings: {click: link_buy_team_click}
+is_package: true

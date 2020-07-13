@@ -1,0 +1,15 @@
+roles:
+- name: title
+  components: [Label]
+- name: card
+  components: [ColumnPanel]
+  display_in_toolbox: true
+  title: Card
+- {name: public-teams}
+- {name: buy-single}
+- {name: buy-team}
+- {name: profile-large}
+- {name: profile-medium}
+- {name: profile-small}
+- {name: panel-left}
+- {name: panel-right}

@@ -1,0 +1,86 @@
+is_package: true
+container:
+  type: HtmlTemplate
+  properties: {tooltip: '', background: '#F4F4F4', foreground: '', border: '', visible: true,
+    role: null, html: ''}
+components:
+- type: ColumnPanel
+  properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
+    wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+    spacing_below: small, background: ''}
+  name: content_panel
+  layout_properties: {slot: default}
+  components:
+  - type: FlowPanel
+    properties: {role: null, spacing: tiny, align: left, tooltip: '', border: '',
+      foreground: '', visible: true, spacing_above: small, spacing_below: small, background: ''}
+    name: flow_panel_profile
+    layout_properties: {grid_position: 'RAQPVB,MLOFLT'}
+    components:
+    - type: Image
+      properties: {role: profile-medium, vertical_align: center, height: 48, tooltip: '',
+        border: '', foreground: '', visible: true, display_mode: shrink_to_fit, spacing_above: small,
+        source: '', spacing_below: small, background: '', horizontal_align: center}
+      name: image_profile
+      layout_properties: {width: 53}
+    - type: Label
+      properties: {role: null, align: left, tooltip: '', border: '', foreground: '',
+        visible: true, text: '', font_size: null, font: '', spacing_above: small,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+        underline: false, icon: ''}
+      name: label_my_email
+      layout_properties: {grid_position: 'ZOPWGV,SDFYYJ'}
+      data_bindings:
+      - {property: text, code: '"Correo electronico: "+self.item[''email'']'}
+  - type: ColumnPanel
+    properties: {role: card, tooltip: '', border: '', foreground: '', visible: true,
+      wrap_on: never, col_spacing: medium, spacing_above: small, col_widths: '{}',
+      spacing_below: small, background: ''}
+    name: card_option
+    layout_properties: {grid_position: 'YXZTZF,INJBRI'}
+    components:
+    - type: Button
+      properties: {role: null, align: full, tooltip: '', border: '', enabled: true,
+        foreground: '', visible: true, text: Mi perfil, font_size: null, font: '',
+        spacing_above: small, icon_align: top, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false, icon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAACJklEQVRoge2Z0ZGjMAyGXUI6OJeQEihhS9CA9MszeTg6WDrYdJDtICVQQkqgBErgHs7scDdMsmCDndn8M3rXh5As/zbmpZeeR0RkmfkdwBVAB6Bj5hZAQ0Q2dX4PRUQHAB8AhnuhqhciOqTOd1ZEZP3XvwsxiS7L6iyEGAAMInJLnfc/8v2wCGISTer8v7SmGpOq9Fn0S1VVbwHVGAAMzFyk5jAAmlCQLH4vAJ+hIKp6Sc1hROQcCiIi59QcpizLOgIIpeYwzjkbCuKcs6k5jDHGqGobAHJNnf+XnHOWmfunrsYoEaGn7I05+cOxewTAzH22EKN883/OAfnfr6nrOv1KskQicmTmgpkLETmmzme1iOjgnLPOOZvFYvhdEdGhLMuamdu5KcbMPTO3IkJZXqr8HX3xWeKvvDZ1/saY4EvVWKn3ZABEZEXkFgoxOVNuu1dnhdHw3djPkNgQYgqz/YTDX9NtK4ixZ9pNIaqq+r01xASm3gTCj9hVG+7K5t/GXVHVy14Qk2iiQvgG3xsiflXW3DWyrAq2HbePoosCISLHhBADgOF0Ov0KBolh94RGlFGMHQ7ARxHFiYy5GAZEeJ9kADGISB8E4d8Ek4MAgQ0fww7NAsRXpEsNgVirPTMXSDC9vA/wFgzwv5xztizLestJxsy9qp53e44boVR11vpZEiJy2zX5exKRo/d+GwBXVW195box/PPDVVXP3v8qns4+femn6Q+/FvpWOpv+TgAAAABJRU5ErkJggg=='}
+      name: button_my_profile
+      layout_properties: {grid_position: 'VKQPTX,GVJAUJ', full_width_row: false, slot: default}
+      event_bindings: {click: button_my_account_click}
+    - type: Button
+      properties: {role: null, align: full, tooltip: '', border: '', enabled: true,
+        foreground: '', visible: true, text: Mis pedidos, font_size: null, font: '',
+        spacing_above: small, icon_align: top, spacing_below: small, italic: false,
+        background: '', bold: false, underline: false, icon: 'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADIAAAAyCAYAAAAeP4ixAAACA0lEQVRoge1a242DMBB0CengKCElpITr4Kyws7aUHzoIHRwdJB2kBEpICZRACXc/iWRxgdjGsD6JkeYXdvyYsReU2rBhGRDRmZl/3pGIeiKqpOsdhY8Ih510vaNg5jpEjNZ6J11zNJj59hRSluWndD3ROB6P1VMIgEa6nmgQ0cHZ9K21tsiJ3kK01rtAU1ibN28xAO4ZFDzKECGNdLFjJKI2RIiWLnhCiH9QW2sL6YLHCGDvLUQppYioly76BcNPG+wEYy40xlyChbjBmAujThpuMObCqLNfbsEYZLtD5BSMs+5HOQVjsO0OhOQSjPMuebkEY5TtDpFDMCa54HEGwZjkyi0djLNs14V0MCZrS0kH4yzbHUIwGNP21owxFwkhSWz3ibIsRUQwJ+yr+faKl1pWyTqdbhgCaADotVhVVRoR7vEkmZdLwBUCoP/XDW1jTOuuWSJqV+Q5mRDpVD+dTh+pxXQSrpVMhAtrbQFgb4y5ENHdWWqHOd11AJqI2sdgdcxcW2uLZK41hNa6eDUzAHpmjgouZv5aPENevHT0XhLjao+BmVpa38lFeLw0+LjNb75nLmL5nu5VBwq5rupaSvk1IUJnxKfVtMg+GYTjHwZ931PvZznpEd4FgP1ER6WOeebEPulCByYIjyV2ffzi0T9zZM4zAWhntjtjTLNYhmzYMI1f8D/iSOXSOXYAAAAASUVORK5CYII='}
+      name: button_my_orders
+      layout_properties: {grid_position: 'SLNLLU,XTJNSN'}
+      event_bindings: {click: button_my_orders_click}
+    - type: Spacer
+      properties: {height: 32}
+      name: spacer_1
+      layout_properties: {grid_position: 'GFBIPQ,HKMPEZ'}
+    - type: Link
+      properties: {role: null, url: '', align: center, tooltip: '', border: '', foreground: '',
+        visible: true, text: Cambia la contraseña, font_size: null, wrap_on: mobile,
+        font: '', col_spacing: medium, spacing_above: none, icon_align: left, col_widths: '',
+        spacing_below: none, italic: false, background: '', bold: false, underline: false,
+        icon: 'fa:pencil-square-o'}
+      name: link_change_password
+      layout_properties: {grid_position: 'WNURQE,NXXWCT'}
+      event_bindings: {click: link_change_password_click}
+    - type: Label
+      properties: {role: null, align: center, tooltip: '', border: '', foreground: '',
+        visible: true, text: '- o -', font_size: null, font: '', spacing_above: none,
+        icon_align: left, spacing_below: small, italic: false, background: '', bold: false,
+        underline: false, icon: ''}
+      name: label_or
+      layout_properties: {grid_position: 'XHBIYB,TJOYEE'}
+    - type: Link
+      properties: {role: null, url: '', align: center, tooltip: '', border: '', foreground: '#FF164E',
+        visible: true, text: Cerrar la sesión, font_size: null, wrap_on: mobile, font: '',
+        col_spacing: medium, spacing_above: none, icon_align: left, col_widths: '',
+        spacing_below: none, italic: false, background: '', bold: false, underline: false,
+        icon: 'fa:sign-out'}
+      name: link_close_session
+      layout_properties: {grid_position: 'PJBVOO,KWYBHW'}
+      event_bindings: {click: link_close_session_click}

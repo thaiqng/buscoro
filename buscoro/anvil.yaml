@@ -1,0 +1,375 @@
+services:
+- source: /runtime/services/tables.yml
+  client_config: {}
+  server_config: {auto_create_missing_columns: false}
+- source: /runtime/services/anvil/users.yml
+  client_config: {require_secure_passwords: true, use_email: true, allow_remember_me: true,
+    allow_signup: true, enable_automatically: true, confirm_email: false, remember_me_days: 30,
+    use_google: true, use_facebook: true}
+  server_config: {user_table: users}
+- source: /runtime/services/facebook.yml
+  client_config: {}
+  server_config: {app_secret: d875616fbcda601f12c3da12a79be559, app_id: '960114467754183'}
+- source: /runtime/services/anvil/email.yml
+  client_config: {}
+  server_config: {test_mode: false, custom_smtp: true, smtp_encryption: starttls,
+    smtp_host: smtp.sendgrid.net, smtp_port: 587, smtp_user: apikey, smtp_password: nA7t000Uc+2eOgrLh5y4YnZUdN5Gw7pJzzkeaWC8AtzjfUnozcULO+Fdxtj/2XikVyJD5Z2PFBBpFB2khz2mj69DpU2Hje14/qWXasc5L1GUcaN3uZ5zG6LmrfeOjsCqbyRGy1J1MS9whGiNgKkcCKKgIDexJ3F0nQaB5JXrchYQRt0M+Xu1bfeZabUe+ZTWrv3ZGsPRwKE6njk3c7Ow4I/14p9tVyEjhSwFhDGAEPbX+jetJd1kBdEnLBpWiQ==}
+- source: /runtime/services/google.yml
+  client_config: {}
+  server_config: {}
+- source: /runtime/services/anvil/secrets.yml
+  client_config: {}
+  server_config: {}
+startup: {type: module, module: startup_join_team_with_url}
+package_name: buscoro
+allow_embedding: false
+name: buscoro
+runtime_options: {version: 2, client_version: '3', server_version: python3-sandbox}
+metadata: {logo_img: 'asset:Buscoro-Favicon.png', title: ¡Buscoro!, description: 'Juntos,
+    más divertido.'}
+startup_form: My_orders
+native_deps: {head_html: ''}
+db_schema:
+- name: pending_team_statuses
+  id: 55218
+  python_name: pending_team_statuses
+  columns:
+    b4rWZy1xdDI=:
+      name: status
+      type: string
+      admin_ui: {order: 0, width: 200}
+  access: {python_name: pending_team_statuses, app_id: MD7HOIJ3BXJEY5RE, server: search,
+    client: none, table_id: 55218}
+- name: background_tasks
+  id: 54093
+  python_name: background_tasks
+  columns:
+    3TEDJtGJblM=:
+      name: created
+      type: datetime
+      admin_ui: {order: 1, width: 200}
+    3c5_Fiub178=:
+      name: task_id
+      type: string
+      admin_ui: {order: 0, width: 200}
+  access: {python_name: background_tasks, app_id: MD7HOIJ3BXJEY5RE, server: full,
+    client: none, table_id: 54093}
+- name: categories
+  id: 53459
+  python_name: categories
+  columns:
+    fcDLnJXCIgQ=:
+      name: category_name
+      type: string
+      admin_ui: {order: 0, width: 200}
+    ssB1F70YiGs=:
+      name: spanish_name
+      type: string
+      admin_ui: {order: 1, width: 200}
+  access: {python_name: categories, app_id: MD7HOIJ3BXJEY5RE, server: search, client: none,
+    table_id: 53459}
+- name: order_statuses
+  id: 53123
+  python_name: order_statuses
+  columns:
+    HkVhKFQxQHU=:
+      name: status
+      type: string
+      admin_ui: {order: 0, width: 200}
+  access: {python_name: order_statuses, app_id: MD7HOIJ3BXJEY5RE, server: search,
+    client: none, table_id: 53123}
+- name: product_pictures
+  id: 55370
+  python_name: product_pictures
+  columns:
+    FG2zMsMqXKI=:
+      name: picture
+      type: media
+      admin_ui: {order: 1, width: 200}
+    hBYeRAdM7ZI=:
+      name: order
+      type: number
+      admin_ui: {order: 2, width: 200}
+    m1PO0Imillc=:
+      name: product
+      type: liveObject
+      backend: anvil.tables.Row
+      admin_ui: {order: -1, width: 200}
+      table_id: 52949
+  access: {python_name: product_pictures, app_id: MD7HOIJ3BXJEY5RE, server: search,
+    client: none, table_id: 55370}
+- name: pending_teams
+  id: 53042
+  python_name: pending_teams
+  columns:
+    qNfqRt4oNgo=:
+      name: realized
+      type: datetime
+      admin_ui: {order: 2, width: 200}
+    dyBBtCwP_A8=:
+      name: code
+      type: string
+      admin_ui: {order: 1.25, width: 200}
+    Q467OfSHy+w=:
+      name: member
+      type: liveObject
+      backend: anvil.tables.Row
+      admin_ui: {order: 1, width: 200}
+      table_id: 52950
+    9hHE3ljBEsE=:
+      name: status
+      type: liveObject
+      backend: anvil.tables.Row
+      admin_ui: {order: 9, width: 200}
+      table_id: 55218
+    lmbjZAvr3hI=:
+      name: canceled
+      type: datetime
+      admin_ui: {order: 4.5, width: 200}
+    fQPhlTKOSAE=:
+      name: product
+      type: liveObject
+      backend: anvil.tables.Row
+      admin_ui: {order: 1.125, width: 200}
+      table_id: 52949
+    yZ1eiCcJbMk=:
+      name: defunct
+      type: datetime
+      admin_ui: {order: 7, width: 200}
+    +SwuoMp9NSs=:
+      name: public
+      type: datetime
+      admin_ui: {order: 1.75, width: 200}
+    ++agwb+Mpqw=:
+      name: creator
+      type: liveObject
+      backend: anvil.tables.Row
+      admin_ui: {order: 0, width: 200}
+      table_id: 52950
+    l4ysjNe7Ed0=:
+      name: created
+      type: datetime
+      admin_ui: {order: 1.5, width: 200}
+  access: {python_name: pending_teams, app_id: MD7HOIJ3BXJEY5RE, server: full, client: none,
+    table_id: 53042}
+- name: products
+  id: 52949
+  python_name: products
+  columns:
+    b_fzeJAvHPA=:
+      name: description
+      type: string
+      admin_ui: {order: 3, width: 200}
+    8sRbOYmjfWg=:
+      name: picture
+      type: liveObjectArray
+      backend: anvil.tables.Row
+      admin_ui: {order: 1.5, width: 204}
+      table_id: 55370
+    _GafM1OVKCk=:
+      name: name
+      type: string
+      admin_ui: {order: 0, width: 200}
+    6a_p31V++Js=:
+      name: brand
+      type: liveObject
+      backend: anvil.tables.Row
+      admin_ui: {order: 5, width: 200}
+      table_id: 52948
+    KsUdICMmIfo=:
+      name: sku
+      type: number
+      admin_ui: {order: -1, width: 200}
+    NwpWVvOrLZ0=:
+      name: category
+      type: liveObjectArray
+      backend: anvil.tables.Row
+      admin_ui: {order: 3, width: 200}
+      table_id: 53459
+    BMR9tnNTNEY=:
+      name: price_team
+      type: number
+      admin_ui: {order: 4, width: 200}
+    ysdRhcGnpPQ=:
+      name: created
+      type: datetime
+      admin_ui: {order: 6, width: 200}
+    js81qJgmCGA=:
+      name: price_single
+      type: number
+      admin_ui: {order: 3.5, width: 200}
+    qzl2YXgH9Dk=:
+      name: thumbnail
+      type: liveObject
+      backend: anvil.tables.Row
+      admin_ui: {order: 0.75, width: 200}
+      table_id: 55370
+  access: {python_name: products, app_id: MD7HOIJ3BXJEY5RE, server: search, client: none,
+    table_id: 52949}
+- name: pending_orders
+  id: 52951
+  python_name: pending_orders
+  columns:
+    5t4MkbCVbaA=:
+      name: status
+      type: liveObject
+      backend: anvil.tables.Row
+      admin_ui: {order: 3, width: 200}
+      table_id: 53123
+    gLm8zmQkAQA=:
+      name: order_id
+      type: string
+      admin_ui: {order: 0, width: 200}
+    jthbnYHtFHI=:
+      name: returned
+      type: datetime
+      admin_ui: {order: 5, width: 200}
+    dXtNim1Zy9A=:
+      name: canceled
+      type: datetime
+      admin_ui: {order: 4.5, width: 200}
+    Azc2N8XRWpY=:
+      name: team_purchase
+      type: liveObject
+      backend: anvil.tables.Row
+      admin_ui: {order: 1.75, width: 200}
+      table_id: 53042
+    y4ZvomfT3AY=:
+      name: user
+      type: liveObject
+      backend: anvil.tables.Row
+      admin_ui: {order: 1, width: 200}
+      table_id: 52950
+    jlKZEIt5yLk=:
+      name: cancellation_requested
+      type: datetime
+      admin_ui: {order: 4.25, width: 200}
+    D0t2WHUlLkE=:
+      name: created
+      type: datetime
+      admin_ui: {order: 2, width: 200}
+    Tkkq1Di1FZ8=:
+      name: completed
+      type: datetime
+      admin_ui: {order: 4, width: 200}
+    9a_SYRPXnoM=:
+      name: product
+      type: liveObject
+      backend: anvil.tables.Row
+      admin_ui: {order: 1.5, width: 200}
+      table_id: 52949
+  access: {python_name: pending_orders, app_id: MD7HOIJ3BXJEY5RE, server: full, client: full,
+    table_id: 52951}
+- name: users
+  id: 52950
+  python_name: users
+  columns:
+    xRaaqgP+xCc=:
+      name: enabled
+      type: bool
+      admin_ui: {order: -1, width: 200}
+    2tjpSUdPpng=:
+      name: pending_order
+      type: liveObjectArray
+      backend: anvil.tables.Row
+      admin_ui: {order: 5.5, width: 200}
+      table_id: 52951
+    Z194JJwRpZk=:
+      name: password_hash
+      type: string
+      admin_ui: {order: 1.5, width: 200}
+    3ve6fbXsTkA=:
+      name: phone
+      type: number
+      admin_ui: {order: 3, width: 200}
+    RayY3vrNWPw=:
+      name: name
+      type: string
+      admin_ui: {order: 0, width: 200}
+    XRnEfkYAk9I=:
+      name: profile_picture
+      type: media
+      admin_ui: {order: 0.1875, width: 200}
+    o5OVFUCmQls=:
+      name: email
+      type: string
+      admin_ui: {order: 0.75, width: 200}
+    9jnox6gYh5U=:
+      name: updated
+      type: datetime
+      admin_ui: {order: 10, width: 200}
+    D9UXAjvAE4E=:
+      name: signed_up
+      type: datetime
+      admin_ui: {order: 7, width: 200}
+    zUriQzW3hZ4=:
+      name: address
+      type: simpleObject
+      admin_ui: {order: 4, width: 200}
+    LWXkz8c1+VQ=:
+      name: last_login
+      type: datetime
+      admin_ui: {order: 14, width: 200}
+    MVa0HxswJ6Y=:
+      name: remembered_logins
+      type: simpleObject
+      admin_ui: {order: 13, width: 200}
+    O_pDs0pAQ5A=:
+      name: api_key
+      type: string
+      admin_ui: {order: 15, width: 200}
+    D7xaKZZQfAA=:
+      name: pending_team
+      type: liveObjectArray
+      backend: anvil.tables.Row
+      admin_ui: {order: 4.75, width: 200}
+      table_id: 53042
+  access: {python_name: users, app_id: MD7HOIJ3BXJEY5RE, server: full, client: full,
+    table_id: 52950}
+- name: brands
+  id: 52948
+  python_name: brands
+  columns:
+    0u9USC9yRy8=:
+      name: created
+      type: datetime
+      admin_ui: {order: 3, width: 200}
+    HFUwUBFvSko=:
+      name: code_name
+      type: string
+      admin_ui: {order: 0.5, width: 200}
+    RDqCXJjrAN0=:
+      name: product
+      type: liveObjectArray
+      backend: anvil.tables.Row
+      admin_ui: {order: 2.5, width: 200}
+      table_id: 52949
+    X3Tz3ZKx+dU=:
+      name: category
+      type: liveObjectArray
+      backend: anvil.tables.Row
+      admin_ui: {order: 0.75, width: 200}
+      table_id: 53459
+    dNJolJSA79s=:
+      name: name
+      type: string
+      admin_ui: {order: 0, width: 200}
+    l8cqzseYLPw=:
+      name: banner
+      type: media
+      admin_ui: {order: 1.5, width: 200}
+    vVtxXd8eVsM=:
+      name: description
+      type: string
+      admin_ui: {order: 2, width: 200}
+    xsHrns547qA=:
+      name: logo
+      type: media
+      admin_ui: {order: 1, width: 200}
+  access: {python_name: brands, app_id: MD7HOIJ3BXJEY5RE, server: search, client: none,
+    table_id: 52948}
+secrets:
+  jwt:
+    value: {? '' : Z9eOHWidV53UaCCDzT1i6zAhM1WMiAThrELSfCymJRet6HvEgavSRt8yMK7bONjB9FTm3Hmp+ntFaXPkhcclwiijbWklwxtx2mEjWzWop552YerHDoMNJIC7jB3rjW7oYKHSTRGN9imfTdWQrC5ofdzepwhidSxeecQyxvEtpMDyyxG7FmNCmxh8bKdtELVUxeroV959EpRVhP3uSweuG59G2biWX1hk+P9k02oyyme6UQBaya6f2F9Uoz5xejOKGqsDEuBdphYsA3qYYWN3NaNamTN7i187fJedTGSpkBy/+WLrqTtXxAFM+HnRHzrBzeC+1FgiA3NbAhWLoEAXgRnG8XSSylDJG7sqMZzLGOuguCGWO37MJDhktVBhj5DAiLzx0Y1ZcXKXP683+sTuatkfg/WfkbfUNgTWtZGV604h8OW9DlFtql/XSUCp/xcjx5BfQN5M3A3Fj/9BzvBN496JeicainVM/3Ay/Bu/ap0RDkW386DN3m2+xxGbzcK7bIHKZHeTF4eOjLycz+THqzhnMV7qtg8EIz/FqVr+cFQUEJOjCWRnUB+q5wABc6jdnCTEVub+hzGiNFTF1qDu9V1N59hMlzWvKhbpwmQ2RK11mUyZszuwMadsJl3tIvVZznTjK70MKERV5CvnnOTHumP8KclOXGUzJIGTKE7HIEpC8scj4+y3c+SJQvS7ygw/jpQ9N67z9UYu0ua/hADAlNK26fQR}
+    type: secret
+renamed: true

@@ -1,0 +1,26 @@
+container:
+  type: ColumnPanel
+  properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
+    wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+    spacing_below: small, background: ''}
+components:
+- type: Label
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: Lorem ipsum., font_size: null, font: '', spacing_above: small, icon_align: left,
+    spacing_below: small, italic: false, background: '', bold: false, underline: false,
+    icon: ''}
+  name: label_instruction
+  layout_properties: {grid_position: 'HVAYZF,GCVVZM'}
+- type: Label
+  properties: {}
+  name: label_product
+  layout_properties: {grid_position: 'MTKYVF,PQLCWP'}
+  data_bindings:
+  - {property: text, code: 'self.item[''name'']'}
+- type: Label
+  properties: {}
+  name: label_price_team
+  layout_properties: {grid_position: 'VHROWA,QCPCUS'}
+  data_bindings:
+  - {property: text, code: 'self.item[''price_team'']'}
+is_package: true

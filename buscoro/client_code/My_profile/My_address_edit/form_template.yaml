@@ -1,0 +1,88 @@
+container:
+  type: ColumnPanel
+  properties: {role: null, tooltip: '', border: '', foreground: '', visible: true,
+    wrap_on: mobile, col_spacing: medium, spacing_above: small, col_widths: '{}',
+    spacing_below: small, background: ''}
+components:
+- type: Label
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: 'Calle, numero ext.', font_size: null, font: '', spacing_above: small, icon_align: left,
+    spacing_below: small, italic: false, background: '', bold: false, underline: false,
+    icon: ''}
+  name: label_my_street
+  layout_properties: {grid_position: 'SKHIGO,RWTGFY'}
+- type: TextBox
+  properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: 'e.g.
+      Calle Liceo, 785', border: '', enabled: true, foreground: '', visible: true,
+    text: '', font_size: null, font: '', spacing_above: small, type: text, spacing_below: small,
+    italic: false, background: '', bold: false, underline: false}
+  name: text_box_my_street
+  layout_properties: {grid_position: 'MDVDHC,XYOHIL'}
+  event_bindings: {pressed_enter: text_box_1_pressed_enter}
+  data_bindings:
+  - {property: text, code: 'self.item[''address''][''street'']', writeback: true}
+- type: Label
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: Colonia, font_size: null, font: '', spacing_above: small, icon_align: left,
+    spacing_below: small, italic: false, background: '', bold: false, underline: false,
+    icon: ''}
+  name: label_my_colony
+  layout_properties: {grid_position: 'TRLTHX,HUSSUL'}
+- type: TextBox
+  properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: e.g. Centro Barranquitas,
+    border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+    font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
+    background: '', bold: false, underline: false}
+  name: text_box_my_colony
+  layout_properties: {grid_position: 'UFTBCT,WLGQDZ'}
+  data_bindings:
+  - {property: text, code: 'self.item[''address''][''colony'']', writeback: true}
+- type: Label
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: Ciudad, font_size: null, font: '', spacing_above: small, icon_align: left,
+    spacing_below: small, italic: false, background: '', bold: false, underline: false,
+    icon: ''}
+  name: label_my_city
+  layout_properties: {grid_position: 'QGPLLW,XCPKME'}
+- type: TextBox
+  properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: e.g. Guadalajara,
+    border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+    font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
+    background: '', bold: false, underline: false}
+  name: text_box_my_city
+  layout_properties: {grid_position: 'HUBLMV,GAUGPX'}
+  data_bindings:
+  - {property: text, code: 'self.item[''address''][''city'']', writeback: true}
+- type: Label
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: Estado, font_size: null, font: '', spacing_above: small, icon_align: left,
+    spacing_below: small, italic: false, background: '', bold: false, underline: false,
+    icon: ''}
+  name: label_my_state
+  layout_properties: {grid_position: 'ODUZOG,MDQCQG'}
+- type: TextBox
+  properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: e.g. Jalisco,
+    border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+    font: '', spacing_above: small, type: text, spacing_below: small, italic: false,
+    background: '', bold: false, underline: false}
+  name: text_box_my_state
+  layout_properties: {grid_position: 'ILKHJA,KWXSEU'}
+  data_bindings:
+  - {property: text, code: 'self.item[''address''][''state'']', writeback: true}
+- type: Label
+  properties: {role: null, align: left, tooltip: '', border: '', foreground: '', visible: true,
+    text: Codigo postal, font_size: null, font: '', spacing_above: small, icon_align: left,
+    spacing_below: small, italic: false, background: '', bold: false, underline: false,
+    icon: ''}
+  name: label_my_zip
+  layout_properties: {grid_position: 'EHFFFW,SYYSSR'}
+- type: TextBox
+  properties: {role: null, align: left, hide_text: false, tooltip: '', placeholder: e.g. 44280,
+    border: '', enabled: true, foreground: '', visible: true, text: '', font_size: null,
+    font: '', spacing_above: small, type: number, spacing_below: small, italic: false,
+    background: '', bold: false, underline: false}
+  name: text_box_my_zip
+  layout_properties: {grid_position: 'KIJRWR,EKUKNW'}
+  data_bindings:
+  - {property: text, code: 'self.item[''address''][''zip'']', writeback: true}
+is_package: true
